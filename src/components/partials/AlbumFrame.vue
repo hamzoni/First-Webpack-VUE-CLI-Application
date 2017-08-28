@@ -1,5 +1,5 @@
 <template>
-    <div id="albumnFrame" class="section">
+    <div id="albumFrame" class="section">
         <slot>
             <no-result></no-result>
         </slot>
@@ -9,7 +9,7 @@
     import NoResult from './NoResult.vue';
 
     export default {
-        name: 'albumnFrame',
+        name: 'albumFrame',
         components: {
           'no-result': NoResult
         }

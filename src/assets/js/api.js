@@ -5,12 +5,12 @@ var headers = {
 }
 class API {
     constructor() {
-        this.albumn = new AlbumnAPI();
+        this.album = new AlbumAPI();
         this.profile = new ProfileAPI();
     }
 }
 
-class AlbumnAPI {
+class AlbumAPI {
 
     constructor() {
         this.xhr = axios.create({

@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 
-import Albumn from './components/pages/Albumn.vue'
+import Albumn from './components/pages/Album.vue'
 import Profile from './components/pages/Profile.vue'
 
 const routes = [

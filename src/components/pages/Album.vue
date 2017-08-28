@@ -1,13 +1,13 @@
 <template>
-    <div id="albumn">
+    <div id="album">
 
-        <albumn-frame>
+        <album-frame>
             <div class="columns" v-for="stack in photos">
                 <div class="column" v-for="photo in stack">
                     <box :info='photo'></box>
                 </div>
             </div>
-        </albumn-frame>
+        </album-frame>
 
         <transition name="fade">
             <loader v-show="loading"></loader>
@@ -24,19 +24,19 @@
 <script>
     import API from './../../assets/js/api.js'
 
-    import AlbumnFrame from './../partials/AlbumnFrame.vue';
+    import AlbumFrame from './../partials/AlbumFrame.vue';
     import ImageBox from './../partials/ImageBox.vue';
     import Pagination from './../partials/Pagination.vue';
     import Loader from './../partials/Loader.vue';
 
 
     export default {
-        name: 'Albumn',
+        name: 'Album',
         components: {
           'box': ImageBox,
           'pagination': Pagination,
           'loader': Loader,
-          'albumn-frame': AlbumnFrame
+          'album-frame': AlbumFrame
         },
 
         mounted() {
@@ -58,7 +58,7 @@
                 this.photos = [];
                 this.currentPage = page;
                 this.loading = true;
-                this.api.albumn.listing(page, 12)
+                this.api.album.listing(page, 12)
                 .then(data => {
                     let photoData = data.data;
                     this.pagination = data.headers.link;
