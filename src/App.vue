@@ -1,8 +1,8 @@
 <template>
 <div id="app">
-     <IHeader></IHeader>
-     <IBody></IBody>
-     <Footer></Footer>
+     <HeaderContent></HeaderContent>
+     <BodyContent></BodyContent>
+     <FooterContent></FooterContent>
 </div>
 </template>
 
