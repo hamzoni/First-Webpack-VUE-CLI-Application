@@ -49,7 +49,6 @@
                 pagination: undefined,
                 currentPage: 1,
                 loading: false,
-                //  data chunking mechanism updated
                 numberOfRows: 3,
                 imagesPerRow: 4
             }
@@ -62,24 +61,26 @@
 
                 this.api.album.listing(page, this.numberOfRows * this.imagesPerRow)
                 .then(data => {
-                    let newAlbum = [];
-                    let photoData = data.data;
                     this.pagination = data.headers.link;
-                    for (let i = 0; i < Math.ceil(photoData.length / this.imagesPerRow); i++) {
-                        newAlbum[i] = [];
-                        for (let j = 0; j <  this.imagesPerRow; j++) {
-                            if (photoData[i * this.imagesPerRow + j] != undefined) {
-                                newAlbum[i].push(photoData[i * this.imagesPerRow + j]);
-                            }
-                        }
-                    }
-                    this.photos = newAlbum;
+                    this.photos = this.chunk(data.data);
                     this.loading = false;
                 })
                 .catch(error => {
                     this.loading = false;
                     console.log(error);
                 });
+            },
+            chunk(photoData) {
+                let newAlbum = [];
+                for (let i = 0; i < Math.ceil(photoData.length / this.imagesPerRow); i++) {
+                    newAlbum[i] = [];
+                    for (let j = 0; j <  this.imagesPerRow; j++) {
+                        if (photoData[i * this.imagesPerRow + j] != undefined) {
+                            newAlbum[i].push(photoData[i * this.imagesPerRow + j]);
+                        }
+                    }
+                }
+                return newAlbum;
             }
         }
     }
