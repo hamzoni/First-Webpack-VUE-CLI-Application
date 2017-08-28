@@ -55,7 +55,7 @@
 
         methods: {
             getPhotos(page) {
-                this.photos = [];
+                this.photos.splice(0, this.photos.length);
                 this.currentPage = page;
                 this.loading = true;
                 this.api.album.listing(page, 12)
