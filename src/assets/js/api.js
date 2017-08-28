@@ -1,7 +1,9 @@
 import axios from 'axios'
+import config from 'config'
+
 const baseURL = 'https://api.unsplash.com';
 var headers = {
-    'Authorization': 'Bearer 300dcbe06d9ce3b7431f4003049daf7b2e04f3876ba5aa969e97e5c17cf943ce',
+    'Authorization': 'Bearer ' + config.unsplashKey,
 }
 class API {
     constructor() {

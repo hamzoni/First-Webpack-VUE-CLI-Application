@@ -49,7 +49,9 @@
                 photos: [],
                 pagination: undefined,
                 currentPage: 1,
-                loading: false
+                loading: false,
+                numberOfRows: 3,
+                imagesPerRow: 4
             }
         },
 
@@ -58,15 +60,15 @@
                 this.photos.splice(0, this.photos.length);
                 this.currentPage = page;
                 this.loading = true;
-                this.api.album.listing(page, 12)
+                this.api.album.listing(page, this.numberOfRows * this.imagesPerRow)
                 .then(data => {
                     let photoData = data.data;
                     this.pagination = data.headers.link;
-                    for (let i = 0; i < Math.ceil(photoData.length / 4); i++) {
+                    for (let i = 0; i < Math.ceil(photoData.length / this.imagesPerRow); i++) {
                         this.photos[i] = [];
-                        for (let j = 0; j <  4; j++) {
-                            if (photoData[i * 4 + j] != undefined) {
-                                this.photos[i].push(photoData[i * 4 + j]);
+                        for (let j = 0; j <  this.imagesPerRow; j++) {
+                            if (photoData[i * this.imagesPerRow + j] != undefined) {
+                                this.photos[i].push(photoData[i * this.imagesPerRow + j]);
                             }
                         }
                     }

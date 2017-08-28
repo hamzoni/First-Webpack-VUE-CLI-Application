@@ -40,7 +40,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'config': path.resolve(__dirname, 'config/config.js')
     }
   },
   devServer: {

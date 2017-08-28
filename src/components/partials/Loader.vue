@@ -2,7 +2,7 @@
     <div id="loading">
         <div id="loading-center">
             <div id="loading-center-absolute">
-                <div class="object" v-for="i in 25"></div>
+                <div class="object" v-for="i in nParticles"></div>
             </div>
         </div>
     </div>
@@ -10,14 +10,9 @@
 <script>
     export default {
         name: 'loader',
-        methods: {
-            modify: function(background, particle) {
-                var bg = document.querySelector("#loading");
-                var pcs = document.querySelectorAll(".object");
-
-                bg.style.backgroundColor = background;
-                [].slice.call(pcs)
-                    .map(pc => pc.style.borderBottomColor = particle);
+        data() {
+            return {
+                nParticles: 25
             }
         }
     }
