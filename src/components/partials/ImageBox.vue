@@ -27,6 +27,9 @@
 <script>
      import VueRouter from 'vue-router'
      import Moment from 'moment'
+     import DateFNS from 'date-fns'
+
+     window.DateFNS = DateFNS;
 
      export default {
           name: 'Card',
@@ -35,8 +38,8 @@
                return {
                     thumbnail: this.info.urls.thumb,
                     date: {
-                         created: new Moment(new Date(this.info.created_at).valueOf()).format("LTS ll"),
-                         updated: new Moment(new Date(this.info.updated_at).valueOf()).format("LTS ll")
+                         created: DateFNS.format(DateFNS.parse(this.info.created_at), "hh:mm:ss A MMM Do YYYY"),
+                         updated: DateFNS.format(DateFNS.parse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY")
                     },
                     fullName: this.info.user.first_name + " " + this.info.user.last_name,
                     username: "@" + this.info.user.username,
