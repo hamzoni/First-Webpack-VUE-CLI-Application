@@ -46,8 +46,8 @@
         data() {
             return {
                 api: new API(),
-                photos: null,
-                pagination: null,
+                photos: undefined,
+                pagination: undefined,
                 currentPage: 1,
                 loading: false
             }
@@ -66,7 +66,7 @@
                         this.photos[i] = [];
                         for (let j = 0; j <  4; j++) {
                             if (photoData[i * 4 + j] != undefined) {
-                                this.photos[i][j] = photoData[i * 4 + j];
+                                this.photos[i].push(photoData[i * 4 + j]);
                             }
                         }
                     }
@@ -74,7 +74,7 @@
                 })
                 .catch(error => {
                     this.loading = false;
-                    console.log("error");
+                    console.log(error);
                 });
             }
         }

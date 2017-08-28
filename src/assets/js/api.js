@@ -36,7 +36,7 @@ class AlbumnAPI {
                     resolve(response);
                 })
                 .catch(error => {
-                    reject(error.response.data);
+                    reject(response);
                 });
         });
     }
@@ -58,7 +58,7 @@ class ProfileAPI {
                     resolve(response);
                 })
                 .catch(error => {
-                    reject(error.response.data);
+                    reject(response);
                 });
         });
     }

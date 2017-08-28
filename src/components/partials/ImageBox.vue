@@ -34,16 +34,24 @@
      export default {
           name: 'Card',
           props: ['info'],
-          data() {
-               return {
-                    thumbnail: this.info.urls.thumb,
-                    date: {
+          computed: {
+               thumbnail: function() {
+                    return this.info.urls.thumb;
+               },
+               date: function() {
+                    return {
                          created: DateFNS.format(DateFNS.parse(this.info.created_at), "hh:mm:ss A MMM Do YYYY"),
                          updated: DateFNS.format(DateFNS.parse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY")
-                    },
-                    fullName: this.info.user.first_name + " " + this.info.user.last_name,
-                    username: "@" + this.info.user.username,
-                    profileUrl: "/profile/" + this.info.user.username
+                    }
+               },
+               fullName: function() {
+                    return this.info.user.first_name + " " + this.info.user.last_name;
+               },
+               username: function() {
+                    return "@" + this.info.user.username;
+               },
+               profileUrl: function() {
+                    return "/profile/" + this.info.user.username;
                }
           }
      }
