@@ -59,25 +59,28 @@
         data() {
             return {
                 localPagRaw: undefined,
-                localPag: {
+            }
+        },
+        computed: {
+            localPag: function() {
+                if (this.pagData) {
+                    this.localPagRaw = (this.pagData + "").split(",");
+                    let newLocalPag = {};
+                    this.localPagRaw.map(pg => {
+                        let name = pg.match(/(?!")(\w+)(?=")/g)[0];
+                        let val = pg.match(/(?!page=)\d+/g)[0];
+                        newLocalPag[name] = val;
+                    });
+                    newLocalPag.current = this.currentPage;
+                    return newLocalPag;
+                }
+                return {
                     prev: undefined,
                     next: undefined,
                     current: undefined,
                     first: undefined,
                     last: undefined
                 }
-            }
-        },
-        watch: {
-            pagData: function() {
-                this.localPagRaw = (this.pagData + "").split(",");
-                this.localPag = {};
-                this.localPagRaw.map(pg => {
-                    let name = pg.match(/(?!")(\w+)(?=")/g)[0];
-                    let val = pg.match(/(?!page=)\d+/g)[0];
-                    this.localPag[name] = val;
-                });
-                this.localPag.current = this.currentPage;
             }
         },
         methods: {
