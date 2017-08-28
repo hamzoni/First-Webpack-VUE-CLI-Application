@@ -2,22 +2,22 @@
 <div id="app">
      <IHeader></IHeader>
      <IBody></IBody>
-     <IFooter></IFooter>
+     <Footer></Footer>
 </div>
 </template>
 
 <script>
-import IHeader from './components/IHeader.vue'
-import IBody from './components/IBody.vue'
-import IFooter from './components/IFooter.vue'
+import Header from './components/Header.vue'
+import Body from './components/Body.vue'
+import Footer from './components/Footer.vue'
 
 export default {
      name: 'app',
 
      components: {
-          IHeader,
-          IBody,
-          IFooter
+          'HeaderContent': Header,
+          'BodyContent': Body,
+          'FooterContent': Footer
      },
 
      data () {
