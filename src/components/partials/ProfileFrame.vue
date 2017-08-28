@@ -1,5 +1,5 @@
 <template>
-    <div id="profileFrame" class="section">
+    <div class="section">
         <slot>
             <no-result></no-result>
         </slot>

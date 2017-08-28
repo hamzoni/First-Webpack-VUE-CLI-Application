@@ -37,10 +37,10 @@
     </div>
 </template>
 <script>
-    import API from './../../assets/js/api.js'
+    import API from 'API'
 
-    import ProfileFrame from './../partials/ProfileFrame.vue';
-    import Loader from './../partials/Loader.vue';
+    import ProfileFrame from '@partials/ProfileFrame.vue';
+    import Loader from '@partials/Loader.vue';
 
     export default {
         name: 'UserProfile',

@@ -22,13 +22,12 @@
     </div>
 </template>
 <script>
-    import API from './../../assets/js/api.js'
+    import API from 'API';
 
-    import AlbumFrame from './../partials/AlbumFrame.vue';
-    import ImageBox from './../partials/ImageBox.vue';
-    import Pagination from './../partials/Pagination.vue';
-    import Loader from './../partials/Loader.vue';
-
+    import AlbumFrame from '@partials/AlbumFrame.vue';
+    import ImageBox from '@partials/ImageBox.vue';
+    import Pagination from '@partials/Pagination.vue';
+    import Loader from '@partials/Loader.vue';
 
     export default {
         name: 'Album',
