@@ -9,7 +9,6 @@
 </template>
 <script>
     export default {
-        name: 'loader',
         data() {
             return {
                 nParticles: 25

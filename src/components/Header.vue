@@ -1,6 +1,6 @@
 <template>
 <section class="hero is-primary is-medium" id="header-content">
-     <MenuBar></MenuBar>
+     <Navigator></Navigator>
      <div class="hero-body">
           <div class="container">
                <p class="title is-1">{{ mainTitle }}</p>
@@ -12,12 +12,12 @@
 
 <script>
 
-import MenuBar from './partials/Navigator.vue'
+import Navigator from './partials/Navigator.vue'
 
 export default {
      name: 'header-content',
      components: {
-          MenuBar
+          Navigator
      },
      data() {
           return {

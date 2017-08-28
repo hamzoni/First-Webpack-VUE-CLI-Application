@@ -1,7 +1,7 @@
 <template>
     <div class="section">
         <slot>
-            <no-result></no-result>
+            <NoResult></NoResult>
         </slot>
     </div>
 </template>
@@ -11,7 +11,7 @@
     export default {
         name: 'profileFrame',
         components: {
-          'no-result': NoResult
+          'NoResult': NoResult
         }
     }
 
