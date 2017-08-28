@@ -9,30 +9,13 @@
 </template>
 <script>
 import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-import Albumn from './pages/Albumn.vue'
-import Profile from './pages/Profile.vue'
-
+import VueRouter from 'vue-router';
 Vue.use(VueRouter)
 
-const routes = [
-    { path: '/', component: Albumn },
-    { path: '/profile/:username', component: Profile, props: true }
-]
-
-const router = new VueRouter({
-    routes
-})
+import router from './../routes.js'
 
 export default {
     name: 'body-content',
-    router,
-    components: {
-
-    },
-    data () {
-      return {}
-    }
+    router
 }
 </script>
