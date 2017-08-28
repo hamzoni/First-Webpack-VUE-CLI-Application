@@ -1,7 +1,7 @@
 <template>
     <div class="section">
         <slot>
-            <no-result></no-result>
+            <noResult></noResult>
         </slot>
     </div>
 </template>
@@ -11,7 +11,7 @@
     export default {
         name: 'albumFrame',
         components: {
-          'no-result': NoResult
+          'noResult': NoResult
         }
     }
 
