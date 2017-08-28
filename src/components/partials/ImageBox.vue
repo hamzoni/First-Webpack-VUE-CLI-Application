@@ -24,10 +24,8 @@
 </template>
 <script>
      import VueRouter from 'vue-router'
-     import Moment from 'moment'
-     import DateFNS from 'date-fns'
-
-     window.DateFNS = DateFNS;
+     import DateFormat from 'date-fns/format'
+     import DateParse from 'date-fns/parse'
 
      export default {
           name: 'Card',
@@ -38,8 +36,8 @@
                },
                date: function() {
                     return {
-                         created: DateFNS.format(DateFNS.parse(this.info.created_at), "hh:mm:ss A MMM Do YYYY"),
-                         updated: DateFNS.format(DateFNS.parse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY")
+                         created: DateFormat(DateParse(this.info.created_at), "hh:mm:ss A MMM Do YYYY"),
+                         updated: DateFormat(DateParse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY")
                     }
                },
                fullName: function() {

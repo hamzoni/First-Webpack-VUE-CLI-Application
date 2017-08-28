@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "date-fns": "^1.28.5",
-    "moment": "^2.18.1",
     "vue": "^2.3.3"
   },
   "devDependencies": {
