@@ -1,5 +1,5 @@
 <template>
-<div class="card" id="Card">
+<div class="card">
      <div class="card-image">
           <figure class="image is-4by3">
                <img :src="thumbnail" alt="Image">
@@ -10,11 +10,9 @@
                <div class="media-content">
                     <p class="title is-4">{{ fullName }}</p>
                     <p class="subtitle is-6">
-                         <a>
-                              <router-link :to="profileUrl">
-                                   {{ username }}
-                              </router-link>
-                         </a>
+                         <router-link :to="profileUrl">
+                              {{ username }}
+                         </router-link>
                     </p>
                </div>
           </div>
