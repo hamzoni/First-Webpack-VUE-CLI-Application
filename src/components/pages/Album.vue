@@ -60,7 +60,7 @@
             getPhotos(page) {
                 this.currentPage = page;
                 this.loading = true;
-
+                // Fix issue #10
                 let newAlbum = [];
                 this.api.album.listing(page, this.numberOfRows * this.imagesPerRow)
                 .then(data => {
