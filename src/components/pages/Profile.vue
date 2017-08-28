@@ -66,9 +66,9 @@
                 name: "",
                 location: "",
                 bio: "",
-                followers: "",
-                following: "",
-                downloads: "",
+                followers: 0,
+                following: 0,
+                downloads: 0,
             }
         },
 

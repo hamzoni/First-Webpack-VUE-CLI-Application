@@ -46,7 +46,7 @@
         data() {
             return {
                 api: new API(),
-                photos: undefined,
+                photos: [],
                 pagination: undefined,
                 currentPage: 1,
                 loading: false
