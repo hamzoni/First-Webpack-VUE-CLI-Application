@@ -58,7 +58,7 @@
         props: ['pagData', 'currentPage'],
         data() {
             return {
-                localPagRaw: undefined,
+                localPagRaw: null,
             }
         },
         computed: {
@@ -75,11 +75,11 @@
                     return newLocalPag;
                 }
                 return {
-                    prev: undefined,
-                    next: undefined,
-                    current: undefined,
-                    first: undefined,
-                    last: undefined
+                    prev: 0,
+                    next: 0,
+                    current: 0,
+                    first: 0,
+                    last: 0
                 }
             }
         },
