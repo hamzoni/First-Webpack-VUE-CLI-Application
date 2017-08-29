@@ -32,65 +32,55 @@
           props: ['info'],
           computed: {
                thumbnail() {
-                    if (this.info) {
-                         if (this.info.urls) {
-                              if (this.info.urls.thumb) {
-                                   return this.info.urls.thumb;
-                              }
-                         }
-                    }
-                    return '';
+                    if (!this.info) return '';
+                    if (!this.info.urls) return '';
+                    if (!this.info.urls.thumb) return '';
+                    return this.info.urls.thumb;
                },
                date() {
-                    let dateCreated = '';
-                    let dateUpdated = '';
-                    if (this.info) {
-                         if (this.info.created_at) {
-                              dateCreated = DateFormat(DateParse(this.info.created_at), "hh:mm:ss A MMM Do YYYY");
-                         }
-                         if (this.info.updated_at) {
-                              dateUpdated = DateFormat(DateParse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY");
-                         }
+                    let dateDefault = {
+                         created: '',
+                         updated: ''
                     }
-                    return {
-                         created: dateCreated,
-                         updated: dateUpdated
+
+                    if (!this.info) return thumb;
+
+                    if (this.info.created_at) {
+                         dateDefault.created = DateFormat(DateParse(this.info.created_at), "hh:mm:ss A MMM Do YYYY");
                     }
+                    if (this.info.updated_at) {
+                         dateDefault.updated = DateFormat(DateParse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY");
+                    }
+                    return dateDefault;
                },
                fullName() {
-                    if (this.info) {
-                         if (this.info.user) {
-                              let fullSizeName = '';
-                              let firstName = '';
-                              let lastName = '';
-                              if (this.info.user.first_name) firstName = this.info.user.first_name;
-                              if (this.info.user.last_name) lastName = this.info.user.last_name;
-                              if (firstName != '') fullSizeName += firstName + ' ';
-                              if (lastName != '') fullSizeName += lastName;
-                              return fullSizeName;
-                         }
-                    }
-                    return '';
+                    if (!this.info) return '';
+                    if (!this.info.user) return '';
+
+                    let nameValue = '';
+                    let firstName = '';
+                    let lastName = '';
+
+                    if (this.info.user.first_name) firstName = this.info.user.first_name;
+                    if (this.info.user.last_name) lastName = this.info.user.last_name;
+                    if (firstName != '') nameValue += firstName + ' ';
+                    if (lastName != '') nameValue += lastName;
+
+                    return nameValue;
                },
                username() {
-                    if (this.info) {
-                         if (this.info.user) {
-                              if (this.info.user.username) {
-                                   return "@" + this.info.user.username;
-                              }
-                         }
-                    }
-                    return '';
+                    if (!this.info) return '';
+                    if (!this.info.user) return '';
+                    if (!this.info.user.username) return '';
+
+                    return "@" + this.info.user.username;
                },
                profileUrl() {
-                    if (this.info) {
-                         if (this.info.user) {
-                              if (this.info.user.username) {
-                                   return "/profile/" + this.info.user.username;
-                              }
-                         }
-                    }
-                    return '';
+                    if (!this.info) return '';
+                    if (!this.info.user) return '';
+                    if (!this.info.user.username) return '';
+
+                    return "/profile/" + this.info.user.username;
                }
           }
      }
