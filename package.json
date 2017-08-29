@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "date-fns": "^1.28.5",
-    "lodash": "^4.17.4",
     "lodash.chunk": "^4.2.0",
     "vue": "^2.3.3"
   },
