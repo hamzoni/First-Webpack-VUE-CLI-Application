@@ -23,7 +23,7 @@
 </template>
 <script>
     import API from 'API';
-    import _array from 'lodash/array';
+    import chunk from 'lodash.chunk';
 
     import AlbumFrame from '@components/AlbumFrame.vue';
     import ImageBox from '@components/ImageBox.vue';
@@ -63,7 +63,7 @@
                 this.api.album.listing(page, this.numberOfRows * this.imagesPerRow)
                 .then(data => {
                     this.pagination = data.headers.link;
-                    this.photos = _array.chunk(data.data, this.imagesPerRow);
+                    this.photos = chunk(data.data, this.imagesPerRow);
                     this.loading = false;
                 })
                 .catch(error => {
