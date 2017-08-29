@@ -12,7 +12,7 @@
 
 <script>
 
-import Navigator from './partials/Navigator.vue'
+import Navigator from '@components/Navigator.vue'
 
 export default {
      name: 'header-content',

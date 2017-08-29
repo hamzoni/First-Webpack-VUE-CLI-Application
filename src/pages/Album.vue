@@ -24,10 +24,10 @@
 <script>
     import API from 'API';
 
-    import AlbumFrame from '@partials/AlbumFrame.vue';
-    import ImageBox from '@partials/ImageBox.vue';
-    import Pagination from '@partials/Pagination.vue';
-    import Loader from '@partials/Loader.vue';
+    import AlbumFrame from '@components/AlbumFrame.vue';
+    import ImageBox from '@components/ImageBox.vue';
+    import Pagination from '@components/Pagination.vue';
+    import Loader from '@components/Loader.vue';
 
     export default {
         name: 'Album',

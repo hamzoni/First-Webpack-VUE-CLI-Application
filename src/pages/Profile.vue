@@ -39,8 +39,8 @@
 <script>
     import API from 'API'
 
-    import ProfileFrame from '@partials/ProfileFrame.vue';
-    import Loader from '@partials/Loader.vue';
+    import ProfileFrame from '@components/ProfileFrame.vue';
+    import Loader from '@components/Loader.vue';
 
     export default {
         name: 'UserProfile',
