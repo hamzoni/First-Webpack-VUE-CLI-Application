@@ -66,16 +66,15 @@
                 let defaultPag = {
                     prev: 0, next: 0, current: 0, first: 0, last: 0
                 }
-                if (this.pagData) {
-                    this.localPagRaw = (this.pagData + "").split(",");
+                if (!this.pagData) return defaultPag;
 
-                    this.localPagRaw.forEach(pg => {
-                        let name = pg.match(/(?!")(\w+)(?=")/g)[0];
-                        let val = pg.match(/(?!page=)\d+/g)[0];
-                        defaultPag[name] = val;
-                    });
-                    defaultPag.current = this.currentPage;
-                }
+                this.localPagRaw = (this.pagData + "").split(",");
+                this.localPagRaw.forEach(pg => {
+                    let name = pg.match(/(?!")(\w+)(?=")/g)[0];
+                    let val = pg.match(/(?!page=)\d+/g)[0];
+                    defaultPag[name] = val;
+                });
+                defaultPag.current = this.currentPage;
                 return defaultPag;
             }
         },
