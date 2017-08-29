@@ -31,7 +31,7 @@
           name: 'Card',
           props: ['info'],
           computed: {
-               thumbnail: function() {
+               thumbnail() {
                     if (this.info) {
                          if (this.info.urls) {
                               if (this.info.urls.thumb) {
@@ -39,9 +39,9 @@
                               }
                          }
                     }
-                    return null;
+                    return '';
                },
-               date: function() {
+               date() {
                     let dateCreated = '';
                     let dateUpdated = '';
                     if (this.info) {
@@ -57,38 +57,40 @@
                          updated: dateUpdated
                     }
                },
-               fullName: function() {
-                    let firstName = '';
-                    let lastName = '';
+               fullName() {
                     if (this.info) {
                          if (this.info.user) {
+                              let fullSizeName = '';
+                              let firstName = '';
+                              let lastName = '';
                               if (this.info.user.first_name) firstName = this.info.user.first_name;
                               if (this.info.user.last_name) lastName = this.info.user.last_name;
+                              if (firstName != '') fullSizeName += firstName + ' ';
+                              if (lastName != '') fullSizeName += lastName;
+                              return fullSizeName;
                          }
                     }
-                    return firstName + ' ' + lastName;
+                    return '';
                },
-               username: function() {
-                    let userName = '';
+               username() {
                     if (this.info) {
                          if (this.info.user) {
                               if (this.info.user.username) {
-                                   userName = "@" + this.info.user.username;
+                                   return "@" + this.info.user.username;
                               }
                          }
                     }
-                    return userName;
+                    return '';
                },
-               profileUrl: function() {
-                    let profileLink = '';
+               profileUrl() {
                     if (this.info) {
                          if (this.info.user) {
                               if (this.info.user.username) {
-                                   profileLink = "/profile/" + this.info.user.username;
+                                   return "/profile/" + this.info.user.username;
                               }
                          }
                     }
-                    return profileLink;
+                    return '';
                }
           }
      }
