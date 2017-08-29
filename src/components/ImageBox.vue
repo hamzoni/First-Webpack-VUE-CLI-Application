@@ -43,7 +43,7 @@
                          updated: ''
                     }
 
-                    if (!this.info) return thumb;
+                    if (!this.info) return dateDefault;
 
                     if (this.info.created_at) {
                          dateDefault.created = DateFormat(DateParse(this.info.created_at), "hh:mm:ss A MMM Do YYYY");
