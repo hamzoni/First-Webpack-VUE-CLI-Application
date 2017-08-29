@@ -32,22 +32,63 @@
           props: ['info'],
           computed: {
                thumbnail: function() {
-                    return this.info.urls.thumb;
+                    if (this.info) {
+                         if (this.info.urls) {
+                              if (this.info.urls.thumb) {
+                                   return this.info.urls.thumb;
+                              }
+                         }
+                    }
+                    return null;
                },
                date: function() {
+                    let dateCreated = '';
+                    let dateUpdated = '';
+                    if (this.info) {
+                         if (this.info.created_at) {
+                              dateCreated = DateFormat(DateParse(this.info.created_at), "hh:mm:ss A MMM Do YYYY");
+                         }
+                         if (this.info.updated_at) {
+                              dateUpdated = DateFormat(DateParse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY");
+                         }
+                    }
                     return {
-                         created: DateFormat(DateParse(this.info.created_at), "hh:mm:ss A MMM Do YYYY"),
-                         updated: DateFormat(DateParse(this.info.updated_at), "hh:mm:ss A MMM Do YYYY")
+                         created: dateCreated,
+                         updated: dateUpdated
                     }
                },
                fullName: function() {
-                    return this.info.user.first_name + " " + this.info.user.last_name;
+                    let firstName = '';
+                    let lastName = '';
+                    if (this.info) {
+                         if (this.info.user) {
+                              if (this.info.user.first_name) firstName = this.info.user.first_name;
+                              if (this.info.user.last_name) lastName = this.info.user.last_name;
+                         }
+                    }
+                    return firstName + ' ' + lastName;
                },
                username: function() {
-                    return "@" + this.info.user.username;
+                    let userName = '';
+                    if (this.info) {
+                         if (this.info.user) {
+                              if (this.info.user.username) {
+                                   userName = "@" + this.info.user.username;
+                              }
+                         }
+                    }
+                    return userName;
                },
                profileUrl: function() {
-                    return "/profile/" + this.info.user.username;
+                    let profileLink = '';
+                    if (this.info) {
+                         if (this.info.user) {
+                              if (this.info.user.username) {
+                                   profileLink = "/profile/" + this.info.user.username;
+                              }
+                         }
+                    }
+                    return profileLink;
                }
           }
      }
