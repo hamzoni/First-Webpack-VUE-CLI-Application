@@ -62,15 +62,17 @@
             }
         },
         computed: {
-            localPag: function() {
+            localPag() {
                 if (this.pagData) {
                     this.localPagRaw = (this.pagData + "").split(",");
                     let newLocalPag = {};
-                    this.localPagRaw.map(pg => {
+
+                    this.localPagRaw.forEach(pg => {
                         let name = pg.match(/(?!")(\w+)(?=")/g)[0];
                         let val = pg.match(/(?!page=)\d+/g)[0];
                         newLocalPag[name] = val;
                     });
+
                     newLocalPag.current = this.currentPage;
                     return newLocalPag;
                 }
