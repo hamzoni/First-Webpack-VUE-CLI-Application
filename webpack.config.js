@@ -11,6 +11,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
@@ -23,20 +29,6 @@ module.exports = {
           }
           // other vue-loader options go here
         }
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: [
-          "babel-loader",
-          "eslint-loader",
-        ],
-      },
-      {
-        enforce: "pre",
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader",
       },
       {
         test: /\.js$/,

@@ -1,11 +1,10 @@
 <template>
-<div id="app">
-     <HeaderContent></HeaderContent>
-     <BodyContent></BodyContent>
-     <FooterContent></FooterContent>
-</div>
+     <div id="app">
+          <HeaderContent></HeaderContent>
+          <BodyContent></BodyContent>
+          <FooterContent></FooterContent>
+     </div>
 </template>
-
 <script>
 import Header from '@components/Header.vue'
 import Body from '@components/Body.vue'
